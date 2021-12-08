@@ -13,7 +13,8 @@ import pe.edu.tecsup.springbootapp.repositories.CategoriaRepository;
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
-	private static Logger log = LoggerFactory.getLogger(CategoriaServiceImpl.class);
+	private static Logger log 
+		= LoggerFactory.getLogger(CategoriaServiceImpl.class);
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
