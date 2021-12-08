@@ -25,11 +25,11 @@ class ProductoServiceTest {
 	@Test
 	void testListar() throws Exception {
 		
-		List<Producto> prods = productoService.findAll();
+		List<Producto> cats = productoService.findAll();
 		
-		log.info(">>>>" + prods.toString());
+		log.info(">>>>" + cats.toString());
 		
-		assertThat(prods.isEmpty(), is(false));
+		assertThat(cats.isEmpty(), is(false));
 		//assertThat(cats.size(), is(3));
 
 	}
@@ -37,13 +37,13 @@ class ProductoServiceTest {
 	@Test
 	void testDummy() throws Exception {
 		
-		List<Producto> prods = productoService.findAll();
+		List<Producto> cats = productoService.findAll();
 
 		log.info("Print by foreach");
-		for(Producto cat : prods) log.info(cat.toString());
+		for(Producto cat : cats) log.info(cat.toString());
 				
 		log.info("Print by stream");
-		prods.stream().forEach(item -> log.info(item.toString()));
+		cats.stream().forEach(item -> log.info(item.toString()));
 
 	}
 

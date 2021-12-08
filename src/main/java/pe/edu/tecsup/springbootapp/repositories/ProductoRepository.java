@@ -1,7 +1,6 @@
 package pe.edu.tecsup.springbootapp.repositories;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -14,8 +13,5 @@ public interface ProductoRepository
 	
 	@Override
 	List<Producto> findAll();
-
-	@Override
-	Optional<Producto> findById(Long id);
 	
 }
