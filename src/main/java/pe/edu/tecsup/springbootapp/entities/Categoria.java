@@ -42,4 +42,9 @@ public class Categoria {
 		this.orden = orden;
 	}
 
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nombre=" + nombre + ", orden=" + orden + "]";
+	}
+
 }
