@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import pe.edu.tecsup.springbootapp.entities.Categoria;
 import pe.edu.tecsup.springbootapp.entities.Producto;
 
 @SpringBootTest
@@ -44,8 +45,71 @@ class ProductoServiceTest {
 				
 		log.info("Print by stream");
 		cats.stream().forEach(item -> log.info(item.toString()));
+		
+		
+	}
+	
+	@Test
+	void testfindById() throws Exception {
+		
+		// buscanod productos
+		Long id = 35L;
+		Producto prod = productoService.findById(id);
+		log.info(prod.toString());
+		
+		assertThat(prod.getNombre(), is("Kingstone"));
+	}
+	
+	
+	
 
+	/*
+	//@Test
+	public void testRegistar() throws Exception {
+		
+		List<Producto> productos = productoService.findAll();
+		int totalAntes = productos.size();
+		
+		Producto productoNuevo = new Producto();
+		
+		// Forma de asignar una categoria
+		//producto.setCategorias_id(1L);
+		
+		// Ahora seria de esta manera
+		Categoria categoria = new Categoria();
+		categoria.setId(1L);
+		//productoNuevo.setCategoria(categoria);
+
+		
+		productoNuevo.setNombre("AMD");
+		productoNuevo.setDescripcion("AMD X10");
+		productoNuevo.setPrecio(280.0);
+		productoNuevo.setStock(6);
+		productoNuevo.setEstado(1);
+		
+		productoService.save(productoNuevo);	
+		
+		productos = productoService.findAll();
+		int totalDespues = productos.size();
+		
+		assertThat(totalDespues - totalAntes, is(1));
 	}
 
-	
+	@Test
+	public void testEliminar() throws Exception {
+		
+		List<Producto> productos = productoService.findAll();
+		int totalAntes = productos.size();
+		if (productos.isEmpty()) {
+			return; // test pass
+		}
+
+		Producto ultimoProducto = productos.get(productos.size() - 1);
+		productoService.deleteById(ultimoProducto.getId());
+		productos = productoService.findAll();
+		int totalDespues = productos.size();
+		
+		assertThat(totalAntes - totalDespues, is(1));
+	}
+	*/
 }
