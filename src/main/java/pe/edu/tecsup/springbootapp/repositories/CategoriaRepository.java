@@ -2,7 +2,9 @@ package pe.edu.tecsup.springbootapp.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
+import pe.edu.tecsup.springbootapp.entities.Categoria;
+
 public interface CategoriaRepository 
-		extends CrudRepository<T, ID> {
+		extends CrudRepository<Categoria, Long> {
 
 }
