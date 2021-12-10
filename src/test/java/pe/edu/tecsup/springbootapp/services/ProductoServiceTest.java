@@ -93,22 +93,29 @@ class ProductoServiceTest {
 		assertThat(totalDespues - totalAntes, is(1));
 	}
 	
-	/*
 	@Test
 	public void testEliminar() throws Exception {
 		
 		List<Producto> productos = productoService.findAll();
+
 		int totalAntes = productos.size();
+		
 		if (productos.isEmpty()) {
 			return; // test pass
 		}
 
+		// Obtiene el último producto
 		Producto ultimoProducto = productos.get(productos.size() - 1);
 		productoService.deleteById(ultimoProducto.getId());
+
+		// Elimina el producto
 		productos = productoService.findAll();
+
+		// Vuelve a leer los datos
 		int totalDespues = productos.size();
 		
 		assertThat(totalAntes - totalDespues, is(1));
+	
 	}
-	*/
+
 }
