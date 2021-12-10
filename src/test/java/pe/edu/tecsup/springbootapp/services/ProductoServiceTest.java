@@ -63,8 +63,8 @@ class ProductoServiceTest {
 	
 	
 
-	/*
-	//@Test
+	
+	@Test
 	public void testRegistar() throws Exception {
 		
 		List<Producto> productos = productoService.findAll();
@@ -73,28 +73,27 @@ class ProductoServiceTest {
 		Producto productoNuevo = new Producto();
 		
 		// Forma de asignar una categoria
-		//producto.setCategorias_id(1L);
-		
-		// Ahora seria de esta manera
 		Categoria categoria = new Categoria();
 		categoria.setId(1L);
-		//productoNuevo.setCategoria(categoria);
+		productoNuevo.setCategoria(categoria);
 
-		
 		productoNuevo.setNombre("AMD");
-		productoNuevo.setDescripcion("AMD X10");
+		productoNuevo.setDescripcion("AMD X21");
 		productoNuevo.setPrecio(280.0);
 		productoNuevo.setStock(6);
 		productoNuevo.setEstado(1);
-		
+
+		// Graba	
 		productoService.save(productoNuevo);	
 		
+		// Vuelve a leer todos los registros
 		productos = productoService.findAll();
 		int totalDespues = productos.size();
 		
 		assertThat(totalDespues - totalAntes, is(1));
 	}
-
+	
+	/*
 	@Test
 	public void testEliminar() throws Exception {
 		
