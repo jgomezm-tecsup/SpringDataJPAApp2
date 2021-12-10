@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import pe.edu.tecsup.springbootapp.entities.Categoria;
+import pe.edu.tecsup.springbootapp.entities.Producto;
 
 @SpringBootTest
 class CategoriaServiceTest {
@@ -37,13 +38,24 @@ class CategoriaServiceTest {
 	@Test
 	void testDummy() throws Exception {
 		
-		List<Categoria> cats = categoriaService.findAll();
+		List<Categoria> categorias = categoriaService.findAll();
 
 		log.info("Print by foreach");
-		for(Categoria cat : cats) log.info(cat.toString());
+		for(Categoria cat : categorias) log.info(cat.toString());
 				
 		log.info("Print by stream");
-		cats.stream().forEach(item -> log.info(item.toString()));
+		categorias.stream().forEach(item -> log.info(item.toString()));
+		
+		log.info(" - Lista de categorias -------------- ");
+		for (Categoria categoria : categorias) {
+			log.info("---> " + categoria);
+			log.info(" - Lista de producto por categoria -------------- ");
+			for (Producto producto : categoria.getProductos()) {
+				log.info("-------> " + producto);
+			}
+		}
+		log.info(" ----------------------------------- ");
+
 
 	}
 
