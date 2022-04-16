@@ -53,15 +53,25 @@ class ProductoServiceTest {
 	void testfindById() throws Exception {
 		
 		// buscanod productos
-		Long id = 35L;
+		Long id = 1L; // verificar si existe.
 		Producto prod = productoService.findById(id);
 		log.info(prod.toString());
 		
-		assertThat(prod.getNombre(), is("Kingstone"));
+		assertThat(prod.getNombre(), is("Intel Core I7"));
 	}
 	
 	
-	
+	@Test
+	void testfindByName() throws Exception {
+		
+		List<Producto> productos = productoService.findByNameLike("Intel");
+		
+		//log.info(">>>>" + productos.toString());
+		productos.stream().forEach(item -> log.info(item.toString()));
+		
+		assertThat(productos.isEmpty(), is(false));
+		//assertThat(cats.size(), is(3));
+	}	
 
 	
 	@Test
